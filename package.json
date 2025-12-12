@@ -1,0 +1,25 @@
+{
+	"name": "wwolfjs",
+	"version": "1.0.0",
+	"description": "A JavaScript library for creating werewolf game and integrate your own game environment.",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"start": "node dist/index.js"
+	},
+	"keywords": [
+		"werewolf",
+		"game",
+		"library",
+		"javascript"
+	],
+	"author": "Fahmi Ilham",
+	"license": "MIT",
+	"type": "module",
+	"devDependencies": {
+		"@types/node": "^24.10.2",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3"
+	}
+}
