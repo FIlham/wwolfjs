@@ -13,13 +13,15 @@ async function loadRolePool(): Promise<Role[]> {
 	const rolesDir = join(__dirname, "../src/roles");
 	const roleFiles = readdirSync(rolesDir).filter(
 		(file) =>
-			file.endsWith(".ts") && file !== "Role.ts" && file !== "index.ts",
+			(file.endsWith(".ts") || file.endsWith(".js")) &&
+			file !== "Role.ts" &&
+			file !== "index.ts",
 	);
 
 	const roles: Role[] = [];
 
 	for (const file of roleFiles) {
-		const modulePath = `../src/roles/${file.replace(".ts", ".js")}`;
+		const modulePath = `../src/roles/${file.replace(/(\.ts|\.d\.ts)$/, ".js")}`;
 		const module = await import(modulePath);
 
 		// Get all exported classes from the module
